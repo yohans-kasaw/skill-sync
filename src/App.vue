@@ -1,20 +1,13 @@
 <template>
-  <div>
+    <div class="bg-red-500 black">
         hello
-        {{name}}
-  </div>
+        <Buttons label="click me"></Buttons>
+    </div>
 </template>
 
-<script>
-export default {
-    data(){
-        return {
-            name : "demeje"
-        }
-    }
-}
+<script setup lang="ts">
 
 </script>
 
-<style scoped>
+<style scoped lang="sass">
 </style>
