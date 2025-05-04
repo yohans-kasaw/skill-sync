@@ -1,11 +1,18 @@
 <template>
-    <div class="bg-red-500 black">
-        hello
-        <Buttons label="click me"></Buttons>
+    <div>
+        <SideBar/>
     </div>
 </template>
 
-<script setup lang="ts">
+<script lang="ts">
+import SideBar from './components/SideBar.vue';
+export default {
+    name: 'App',
+    components:{
+        SideBar
+    }
+
+}
 
 </script>
 
