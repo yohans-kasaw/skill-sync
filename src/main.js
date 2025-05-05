@@ -3,6 +3,7 @@ import './style.css'
 import App from './App.vue'
 import PrimeVue from 'primevue/config'
 import Material from '@primeuix/themes/material'
+import router from "./router"
 
 import 'primeicons/primeicons.css'
 
@@ -16,4 +17,5 @@ app.use(PrimeVue, {
         }
     }
 })
+app.use(router)
 app.mount('#app')

@@ -1,6 +1,6 @@
 <template>
     <nav
-        class="h-screen w-16 hover:w-48 bg-gray-800 transition-all duration-300 ease-in-out"
+        class="sticky h-screen w-12 hover:w-48 bg-gray-800 transition-all duration-300 ease-in-out"
     >
         <div class="py-8">
             <div
@@ -8,6 +8,7 @@
                 :key="item.id"
                 @click="handleItemClick(item)"
                 class="p-4 flex justify-start items-center cursor-pointer transition-colors duration-300 hover:bg-gray-700"
+                :class="{'bg-gray-700':this.$route.fullPath==item.route}"
             >
                 <i :class="item.icon" style="font-size: 1.25rem"></i>
                 <span class="pl-3 truncate">{{ item.label }}</span>
@@ -16,7 +17,7 @@
     </nav>
 </template>
 
-<script>
+<script lang="ts">
 export default {
     name: 'Sidebar',
     data() {
@@ -24,7 +25,7 @@ export default {
             isExpanded: false,
             menuItems: [
                 {
-                    id: 'apply',
+                    id: 'should_i_apply',
                     icon: 'pi pi-question-circle',
                     label: 'Should I Apply',
                     route: '/should-i-apply'
