@@ -1,53 +1,39 @@
 <template>
     <nav
-        class="sticky h-screen w-12 hover:w-48 bg-gray-800 transition-all duration-300 ease-in-out"
+        class="sticky h-screen text-white w-12 hover:w-48 bg-gradient-to-br from-slate-900 to-slate-800 transition-all duration-300 ease-in-out"
     >
         <div class="py-8">
-            <div
-                v-for="item in menuItems"
-                :key="item.id"
+            <a
+                v-for="(item, index) in menuItems"
+                :key="index"
                 @click="handleItemClick(item)"
                 class="p-4 flex justify-start items-center cursor-pointer transition-colors duration-300 hover:bg-gray-700"
-                :class="{'bg-gray-700':this.$route.fullPath==item.route}"
+                :class="[
+                    { 'bg-slate-800': $route.fullPath == item.path },
+                    item.class
+                ]"
             >
-                <i :class="item.icon" style="font-size: 1.25rem"></i>
-                <span class="pl-3 truncate">{{ item.label }}</span>
-            </div>
+                <v-icon> {{ item.icon }}</v-icon>
+                <span class="pl-3 truncate">{{ item.name }}</span>
+            </a>
         </div>
     </nav>
 </template>
 
 <script lang="ts">
+import route_info from '../lib/route_info.ts'
+
 export default {
     name: 'Sidebar',
     data() {
         return {
             isExpanded: false,
-            menuItems: [
-                {
-                    id: 'should_i_apply',
-                    icon: 'pi pi-question-circle',
-                    label: 'Should I Apply',
-                    route: '/should-i-apply'
-                },
-                {
-                    id: 'cover',
-                    icon: 'pi pi-file-edit',
-                    label: 'Cover Letter',
-                    route: '/cover-letter'
-                },
-                {
-                    id: 'resume',
-                    icon: 'pi pi-briefcase',
-                    label: 'Resume Tailer',
-                    route: '/resume-tailer'
-                }
-            ]
+            menuItems: route_info
         }
     },
     methods: {
         handleItemClick(item) {
-            this.$router.push(item.route)
+            this.$router.push(item.path)
         }
     }
 }

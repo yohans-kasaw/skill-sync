@@ -1,24 +1,14 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import route_info from '../lib/route_info'
 
 const route = createRouter({
     history: createWebHistory(),
-    routes: [
-        {
-            path: '/',
-            name: 'home',
-            component: () => import('../views/Home.vue'),
-        },
-        {
-            path: '/should-i-apply',
-            name: 'shoul-i-apply',
-            component: () => import('../views/ShouldIApply.vue')
-        },
-        {
-            path: '/cover-letter',
-            name: 'cover-letter',
-            component: () => import('../views/CoverLetter.vue')
-        },
-    ]
+    routes: route_info
+})
+
+route.beforeEach((to, _, next) => {
+    document.title = to.name?.toString() || "Skill-Sync"
+    next()
 })
 
 export default route

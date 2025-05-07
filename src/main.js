@@ -1,21 +1,20 @@
 import { createApp } from 'vue'
 import './style.css'
 import App from './App.vue'
-import PrimeVue from 'primevue/config'
-import Material from '@primeuix/themes/material'
 import router from "./router"
+import { createVuetify } from 'vuetify'
+import * as components from 'vuetify/components'
+import * as directives from 'vuetify/directives'
+import '@mdi/font/css/materialdesignicons.css'
+//import 'vuetify/styles'
 
-import 'primeicons/primeicons.css'
+const vuetify = createVuetify({
+    components: components,
+    directives,
+})
+
 
 const app = createApp(App)
-app.use(PrimeVue, {
-    theme: {
-        preset: Material,
-        options: {
-            darkModeSelector: '.dark-mode',
-            cssLayer: true
-        }
-    }
-})
 app.use(router)
+app.use(vuetify)
 app.mount('#app')

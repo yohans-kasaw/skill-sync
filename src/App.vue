@@ -1,16 +1,15 @@
 <template>
-    <div class="flex">
+    <div class="flex w-screen">
         <nav>
             <side-bar />
         </nav>
-        <div>
-            <main>
+        <div class="flex-grow">
+            <main
+                class="h-screen bg-gradient-to-br from-slate-900 via-slate-800/95 via-slate-800/90 via-slate-800/85 to-blue-900"
+            >
                 <RouterView />
             </main>
         </div>
-    </div>
-    <div style="height: 1000px">
-
     </div>
 </template>
 
@@ -24,4 +23,5 @@ export default {
 }
 </script>
 
-<style scoped lang="sass"></style>
+<style scoped>
+</style>
