@@ -5,7 +5,7 @@
         </nav>
         <div class="flex-grow">
             <main
-                class="h-screen bg-gradient-to-br from-slate-900 via-slate-800/95 via-slate-800/90 via-slate-800/85 to-blue-900"
+                class="h-full bg-gradient-to-br from-slate-900 via-slate-800/95 via-slate-800/90 via-slate-800/85 to-blue-900"
             >
                 <RouterView />
             </main>
