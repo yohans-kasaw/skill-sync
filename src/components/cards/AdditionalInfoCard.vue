@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full bg-[#1E202B] shadow-lg rounded-lg border border-gray-700">
+  <div class="w-full bg-gray-800 shadow-lg rounded-lg border border-gray-700">
     <!-- Header -->
     <div class="p-6">
       <div class="flex gap-4 items-center">
@@ -16,9 +16,9 @@
     </div>
 
     <!-- Main Content Area -->
-    <div class="px-6 bg-[#1E202B] pb-6 space-y-6">
+    <div class="px-6 bg-gray-800 pb-6 space-y-6">
       <!-- Tips for additional information -->
-      <div class="bg-[#292B3A] border border-[#383B4C] rounded-lg p-4">
+      <div class="bg-slate-800 border border-gray-700 rounded-lg p-4">
         <div class="flex gap-3">
           <div class="text-yellow-500 pt-0.5 shrink-0">
             <v-icon size="20">mdi-lightbulb-outline</v-icon>
@@ -44,7 +44,7 @@
           id="additionalInformation"
           v-model="additionalInfoText"
           rows="8"
-          class="w-full p-3 bg-[#181926] border border-gray-600 hover:border-gray-500 focus:border-blue-500 rounded-lg text-gray-300 placeholder-gray-500 outline-none focus:ring-1 focus:ring-blue-500 resize-y"
+          class="w-full p-3 bg-gray-900 border border-gray-600 hover:border-gray-500 focus:border-blue-500 rounded-lg text-gray-300 placeholder-gray-500 outline-none focus:ring-1 focus:ring-blue-500 resize-y"
           placeholder="Enter your notes here..."
         ></textarea>
         <div class="text-right text-xs text-gray-500">
@@ -53,7 +53,7 @@
       </div>
 
       <!-- What to include here -->
-      <div class="bg-[#292B3A] border border-[#383B4C] rounded-lg p-4">
+      <div class="bg-slate-800 border border-gray-700 rounded-lg p-4">
         <h3 class="text-white font-semibold text-sm mb-2">What to include here:</h3>
         <ul class="text-xs text-gray-400 space-y-1.5">
           <li v-for="(item, index) in whatToInclude" :key="index" class="flex items-start gap-1.5">
@@ -65,14 +65,14 @@
     </div>
 
     <!-- Footer Buttons -->
-    <div class="px-6 py-4 border-t border-[#383B4C] flex justify-between items-center rounded-b-lg">
+    <div class="px-6 py-4 border-t border-gray-700 flex justify-between items-center rounded-b-lg">
       <button
-        class="px-5 py-2.5 bg-slate-600 hover:bg-slate-500 text-white text-sm font-medium rounded-md transition-colors duration-150"
+        class="px-5 py-2.5 border border-gray-700  text-white hover:bg-gray-600 text-sm font-medium rounded-md transition-colors duration-150"
       >
         Back to Resume
       </button>
       <button
-        class=" bg-blue-500 px-4 py-[8px] border border-gray-700 rounded-lg text-sm font-medium "
+        class="hover:bg-gray-600 text-white px-4 py-[8px] border border-gray-700 rounded-lg text-sm font-medium "
       >
         Continue
         <v-icon style="font-size: 1.1rem;">mdi-arrow-down</v-icon>
@@ -122,14 +122,8 @@ export default defineComponent({
 /* Tailwind CSS utility classes handle most styling.
    Custom styles can be added here if necessary. */
 
-textarea::placeholder {
-  color: #6B7280; /* Corresponds to Tailwind's placeholder-gray-500 */
-}
-
 /* Ensure Vuetify icons are vertically aligned well if there are issues. */
 /* .v-icon {
   vertical-align: middle; 
 } */
 </style>
-
-    
