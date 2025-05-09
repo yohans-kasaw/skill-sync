@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full bg-[#1E202B] shadow-lg rounded-lg border border-[#383B4C]">
+  <div class="w-full bg-[#1E202B] shadow-lg rounded-lg border border-gray-700">
     <!-- Header -->
     <div class="p-6">
       <div class="flex gap-4 items-center">
@@ -16,7 +16,7 @@
     </div>
 
     <!-- Main Content Area -->
-    <div class="px-6 pb-6 space-y-6">
+    <div class="px-6 bg-[#1E202B] pb-6 space-y-6">
       <!-- Tips for additional information -->
       <div class="bg-[#292B3A] border border-[#383B4C] rounded-lg p-4">
         <div class="flex gap-3">
@@ -65,14 +65,14 @@
     </div>
 
     <!-- Footer Buttons -->
-    <div class="px-6 py-4 bg-[#292B3A] border-t border-[#383B4C] flex justify-between items-center rounded-b-lg">
+    <div class="px-6 py-4 border-t border-[#383B4C] flex justify-between items-center rounded-b-lg">
       <button
         class="px-5 py-2.5 bg-slate-600 hover:bg-slate-500 text-white text-sm font-medium rounded-md transition-colors duration-150"
       >
         Back to Resume
       </button>
       <button
-        class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 text-sm font-medium rounded-md flex items-center gap-1.5 transition-colors duration-150"
+        class=" bg-blue-500 px-4 py-[8px] border border-gray-700 rounded-lg text-sm font-medium "
       >
         Continue
         <v-icon style="font-size: 1.1rem;">mdi-arrow-down</v-icon>

@@ -16,7 +16,7 @@
     </div>
 
     <!-- Main Content Area -->
-    <div class="px-6 pb-6 space-y-6">
+    <div class="px-6 bg-[#1E202B] pb-6 space-y-6">
       <!-- Tips for your base prompt -->
       <div class="bg-[#292B3A] border border-[#383B4C] rounded-lg p-4">
         <div class="flex gap-3">

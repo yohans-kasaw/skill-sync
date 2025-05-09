@@ -1,6 +1,6 @@
 <template>
     <div
-        class="w-fill border shadow-lg border-blue-900 hover:shadow-xl rounded-lg"
+        class="w-fill border shadow-lg border-gray-700 hover:shadow-xl rounded-lg"
     >
         <div
             class="relative p-6 bg-gradient-to-r from-slate-800/20 to-blue-900/20 rounded-t-lg border-b"
@@ -80,7 +80,7 @@
                     ></textarea>
                     <div
                         v-else
-                        class="flex flex-col gap-3 justify-center items-center w-full h-60"
+                        class="flex flex-col gap-3 justify-center items-center w-full h-[27rem]"
                     >
                         <div>
                             <Upload />
