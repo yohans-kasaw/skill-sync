@@ -15,9 +15,9 @@
 </template>
 
 <script lang="ts">
-import ResumeJsonCard from '../components/ResumeJsonCard.vue'
-import AdditionalInfoCard from '../components/AdditionalInfoCard.vue'
-import BasePromptCard from '../components/BasePromptCard.vue'
+import ResumeJsonCard from '@/components/cards/ResumeJsonCard.vue'
+import AdditionalInfoCard from '@/components/cards/AdditionalInfoCard.vue'
+import BasePromptCard from '@/components/cards/BasePromptCard.vue'
 
 export default {
     name: 'BaseInfo',

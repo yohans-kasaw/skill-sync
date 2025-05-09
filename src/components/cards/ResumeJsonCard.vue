@@ -137,9 +137,9 @@
 </template>
 
 <script lang="ts">
-import JsonFile from '../assets/svg/json-file.svg'
-import Upload from '../assets/svg/upload.svg'
-import Brace from '../assets/svg/braces.svg'
+import JsonFile from '@/assets/svg/json-file.svg'
+import Upload from '@/assets/svg/upload.svg'
+import Brace from '@/assets/svg/braces.svg'
 export default {
     components: {
         JsonFile,
