@@ -1,20 +1,23 @@
 <template>
     <div class="h-screen">
-        <InfoBox
-            title="Why JSON?"
-            :bulb="true"
-            :items="tipsForInfo"
-        ></InfoBox>
+        <CardHeader
+            title="am header"
+            subtitle="am subtitel"
+            icon="mdi-chat-outline"
+            iconColor="green-400"
+        />
         {{ $route.fullPath }}
     </div>
 </template>
 
 <script lang="ts">
 import InfoBox from '@/components/shared/InfoBox.vue'
+import CardHeader from '@/components/shared/CardHeader.vue'
 export default {
     name: 'ShouldIApply',
     components: {
-        InfoBox
+        InfoBox,
+        CardHeader
     },
     data() {
         return {

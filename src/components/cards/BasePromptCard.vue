@@ -1,28 +1,16 @@
 <template>
     <div class="w-full bg-gray-800 shadow-lg rounded-lg border border-gray-700">
         <!-- Header -->
-        <div class="p-6">
-            <div class="flex gap-4 items-center">
-                <div
-                    class="w-10 h-10 bg-green-500/20 rounded-full flex items-center justify-center shrink-0"
-                >
-                    <v-icon class="text-green-400" size="20"
-                        >mdi-chat-outline</v-icon
-                    >
-                </div>
-                <div>
-                    <h1 class="text-white font-bold text-xl">Base Prompt</h1>
-                    <p class="text-gray-400 text-sm pt-1">
-                        Define a persona or guiding principles for generating
-                        your application documents.
-                    </p>
-                </div>
-            </div>
-        </div>
+        <CardHeader
+            title="Base Prompt"
+            subtitle="Define a persona or guiding principles for generating your application documents."
+            icon="mdi-chat-outline"
+            colorClass="bg-green-500/20 text-green-400"
+        >
+        </CardHeader>
 
         <!-- Main Content Area -->
         <div class="px-6 bg-gray-800 pb-6 space-y-6">
-
             <InfoBox
                 title="Tips for your base prompt"
                 :bulb="true"
@@ -55,28 +43,6 @@
                     </button>
                 </div>
             </div>
-
-            <!-- Prompt Guidance -->
-            <div class="bg-slate-800 border border-gray-700 rounded-lg p-4">
-                <div class="flex gap-3 items-start">
-                    <div class="text-blue-400 pt-0.5 shrink-0">
-                        <v-icon size="20">mdi-directions-fork</v-icon>
-                        <!-- Or mdi-compass-outline -->
-                    </div>
-                    <div class="flex flex-col">
-                        <h3 class="text-white font-semibold text-sm mb-1">
-                            Prompt Guidance
-                        </h3>
-                        <p class="text-xs text-gray-400">
-                            Your base prompt provides the foundational
-                            instructions or persona for the AI. It helps shape
-                            the tone, style, and core message of your generated
-                            resume and cover letter. Be specific to guide the AI
-                            effectively.
-                        </p>
-                    </div>
-                </div>
-            </div>
         </div>
 
         <!-- Footer Button -->
@@ -84,7 +50,7 @@
             class="px-6 py-4 bg-slate-800 border-t border-gray-700 flex justify-start items-center rounded-b-lg"
         >
             <button
-                class="px-5 border border-gray-700 hover:bg-gray-600 text-white py-2.5 text-sm font-medium rounded-md transition-colors duration-150"
+                class="px-5 border border-gray-700 hover:bg-gray-600 text-white py-2.5 text-sm font-medium rounded-md"
             >
                 Back to Additional Info
             </button>
@@ -96,11 +62,13 @@
 <script lang="ts">
 import { defineComponent, ref } from 'vue'
 import InfoBox from '@/components/shared/InfoBox.vue'
+import CardHeader from '@/components/shared/CardHeader.vue'
 
-export default defineComponent({
+export defau/lt defineComponent({
     name: 'BasePromptCard',
     components: {
-        InfoBox
+        InfoBox,
+        CardHeader
     },
     setup() {
         const basePromptText = ref('')

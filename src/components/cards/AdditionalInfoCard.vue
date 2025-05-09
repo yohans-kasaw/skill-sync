@@ -1,26 +1,12 @@
 <template>
     <div class="w-full bg-gray-800 shadow-lg rounded-lg border border-gray-700">
         <!-- Header -->
-        <div class="p-6">
-            <div class="flex gap-4 items-center">
-                <div
-                    class="w-10 h-10 bg-purple-500/20 rounded-full flex items-center justify-center shrink-0"
-                >
-                    <v-icon class="text-purple-400" size="20"
-                        >mdi-account-outline</v-icon
-                    >
-                </div>
-                <div>
-                    <h1 class="text-white font-bold text-xl">
-                        Additional Information
-                    </h1>
-                    <p class="text-gray-400 text-sm pt-1">
-                        Provide any additional context or notes about your
-                        application
-                    </p>
-                </div>
-            </div>
-        </div>
+        <CardHeader
+            title="Additional Information"
+            subtitle="Provide any additional context or notes about your application"
+            icon="mdi-account-outline"
+            colorClass="bg-purple-500/20 text-purple-400"
+        />
 
         <!-- Main Content Area -->
         <div class="px-6 bg-gray-800 pb-6 space-y-6">
@@ -82,12 +68,14 @@
 <script lang="ts">
 import { defineComponent, ref, computed } from 'vue'
 import InfoBox from '@/components/shared/InfoBox.vue'
+import CardHeader from '@/components/shared/CardHeader.vue'
 
 export default defineComponent({
     name: 'AdditionalInformationCard',
 
     components: {
-        InfoBox
+        InfoBox,
+        CardHeader
     },
 
     setup() {

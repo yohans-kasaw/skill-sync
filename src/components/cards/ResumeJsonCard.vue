@@ -1,23 +1,12 @@
 <template>
     <div class="w-full bg-gray-800 shadow-lg rounded-lg border border-gray-700">
         <!-- Header -->
-        <div class="p-6">
-            <div class="flex gap-4 items-center">
-                <div
-                    class="w-10 h-10 bg-blue-500/20 rounded-full flex items-center justify-center shrink-0"
-                >
-                    <JsonFile class="h-5 w-5 text-blue-400" />
-                </div>
-                <div>
-                    <h1 class="text-white font-bold text-xl">
-                        Resume (JSON Format)
-                    </h1>
-                    <p class="text-gray-400 text-sm pt-1">
-                        Paste your JSON resume, or upload it as a file.
-                    </p>
-                </div>
-            </div>
-        </div>
+        <CardHeader
+            title="Resume (JSON Format)"
+            subtitle="Paste your JSON resume, or upload it as a file."
+            icon="mdi-code-json"
+            colorClass="bg-blue-500/20 text-blue-400"
+        />
 
         <!-- Main Content Area -->
         <div class="px-6 bg-gray-800 pb-6 space-y-6">
@@ -59,7 +48,10 @@
                         v-else
                         class="flex flex-col gap-3 justify-center items-center w-full min-h-[27rem] bg-gray-900 p-4"
                     >
-                        <Upload class="h-12 w-12 text-gray-500" />
+                        <!-- Replaced Upload SVG with mdi-cloud-upload-outline -->
+                        <v-icon class="text-gray-500" style="font-size: 3rem"
+                            >mdi-cloud-upload-outline</v-icon
+                        >
                         <span class="text-white font-medium text-sm pt-2"
                             >Upload JSON Resume</span
                         >
@@ -84,9 +76,12 @@
                         class="px-3 py-1.5 bg-slate-600 hover:bg-slate-500 text-white text-xs font-medium rounded-md border border-slate-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-150"
                         :disabled="!jsonText.trim() || isFormatting"
                     >
-                        <Brace
-                            class="h-3.5 w-3.5 inline mr-1 -ml-0.5 align-[-3px]"
-                        ></Brace>
+                        <!-- Replaced Brace SVG with mdi-code-braces -->
+                        <v-icon
+                            class="inline mr-1 -ml-0.5 align-[-3px]"
+                            style="font-size: 0.875rem"
+                            >mdi-code-braces</v-icon
+                        >
                         Format JSON
                     </button>
                 </div>
@@ -109,23 +104,19 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue'
-import JsonFile from '@/assets/svg/json-file.svg' // Ensure these paths are correct
-import Upload from '@/assets/svg/upload.svg'
-import Brace from '@/assets/svg/braces.svg'
+import CardHeader from '@/components/shared/CardHeader.vue'
 import InfoBox from '@/components/shared/InfoBox.vue'
 
 export default defineComponent({
     name: 'JsonResumeCard',
     components: {
-        JsonFile,
-        Upload,
-        Brace,
-        InfoBox
+        InfoBox,
+        CardHeader
     },
     setup() {
         const activeTab = ref('paste')
         const jsonText = ref('')
-        const isFormatting = ref(false) // Example state for format button
+        const isFormatting = ref(false)
 
         const why_json = ref([
             'Make quick updates to your resume—no more messy formatting.',
@@ -158,7 +149,4 @@ export default defineComponent({
 })
 </script>
 
-<style scoped>
-/* Tailwind CSS utility classes handle most styling.
-   Custom styles can be added here if necessary. */
-</style>
+<style scoped></style>
