@@ -9,7 +9,9 @@
                     <JsonFile class="h-5 w-5 text-blue-400" />
                 </div>
                 <div>
-                    <h1 class="text-white font-bold text-xl">Resume (JSON Format)</h1>
+                    <h1 class="text-white font-bold text-xl">
+                        Resume (JSON Format)
+                    </h1>
                     <p class="text-gray-400 text-sm pt-1">
                         Paste your JSON resume, or upload it as a file.
                     </p>
@@ -19,32 +21,14 @@
 
         <!-- Main Content Area -->
         <div class="px-6 bg-gray-800 pb-6 space-y-6">
-            <!-- Why JSON? Info Box -->
-            <div class="bg-slate-800 border border-gray-700 rounded-lg p-4">
-                <div class="flex gap-3">
-                    <div class="text-yellow-500 pt-0.5 shrink-0">
-                        <v-icon size="20">mdi-lightbulb-outline</v-icon>
-                    </div>
-                    <div class="flex flex-col">
-                        <h3 class="text-white font-semibold text-sm mb-1">Why JSON?</h3>
-                        <ul class="text-xs text-gray-400 space-y-1.5">
-                            <li
-                                v-for="(item, index) in why_json"
-                                :key="index"
-                                class="flex items-start gap-1.5"
-                            >
-                                <span class="text-yellow-500 leading-tight">•</span>
-                                <span>{{ item }}</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+            <InfoBox title="Why JSON?" :bulb="true" :items="why_json"></InfoBox>
 
             <!-- JSON Input Part -->
             <div class="space-y-4">
                 <!-- Tab Buttons Container -->
-                <div class="w-full bg-gray-700/80 rounded-md p-1 flex items-center space-x-1">
+                <div
+                    class="w-full bg-gray-700/80 rounded-md p-1 flex items-center space-x-1"
+                >
                     <button
                         v-for="tab in ['paste', 'upload']"
                         :key="tab"
@@ -61,7 +45,9 @@
                 </div>
 
                 <!-- Text Area / Upload Area Container -->
-                <div class="rounded-lg border border-gray-700 hover:border-blue-500/30 focus-within:border-blue-500/30 focus-within:ring-1 focus-within:ring-blue-500 overflow-hidden transition-colors duration-150">
+                <div
+                    class="rounded-lg border border-gray-700 hover:border-blue-500/30 focus-within:border-blue-500/30 focus-within:ring-1 focus-within:ring-blue-500 overflow-hidden transition-colors duration-150"
+                >
                     <textarea
                         v-if="activeTab === 'paste'"
                         v-model="jsonText"
@@ -74,7 +60,9 @@
                         class="flex flex-col gap-3 justify-center items-center w-full min-h-[27rem] bg-gray-900 p-4"
                     >
                         <Upload class="h-12 w-12 text-gray-500" />
-                        <span class="text-white font-medium text-sm pt-2">Upload JSON Resume</span>
+                        <span class="text-white font-medium text-sm pt-2"
+                            >Upload JSON Resume</span
+                        >
                         <span class="text-gray-400 text-xs text-center">
                             Drag and drop your JSON file here or click to browse
                         </span>
@@ -96,7 +84,9 @@
                         class="px-3 py-1.5 bg-slate-600 hover:bg-slate-500 text-white text-xs font-medium rounded-md border border-slate-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-150"
                         :disabled="!jsonText.trim() || isFormatting"
                     >
-                        <Brace class="h-3.5 w-3.5 inline mr-1 -ml-0.5 align-[-3px]"></Brace>
+                        <Brace
+                            class="h-3.5 w-3.5 inline mr-1 -ml-0.5 align-[-3px]"
+                        ></Brace>
                         Format JSON
                     </button>
                 </div>
@@ -104,12 +94,14 @@
         </div>
 
         <!-- Footer Button -->
-        <div class="px-6 py-4 bg-slate-800 border-t border-gray-700 flex justify-end items-center rounded-b-lg">
+        <div
+            class="px-6 py-4 bg-slate-800 border-t border-gray-700 flex justify-end items-center rounded-b-lg"
+        >
             <button
                 class="hover:bg-gray-600 text-white px-4 py-2 border border-gray-700 rounded-lg text-sm font-medium flex items-center gap-1.5 transition-colors duration-150"
             >
                 Continue
-                <v-icon style="font-size: 1.1rem;">mdi-arrow-down</v-icon>
+                <v-icon style="font-size: 1.1rem">mdi-arrow-down</v-icon>
             </button>
         </div>
     </div>
@@ -120,15 +112,15 @@ import { defineComponent, ref } from 'vue'
 import JsonFile from '@/assets/svg/json-file.svg' // Ensure these paths are correct
 import Upload from '@/assets/svg/upload.svg'
 import Brace from '@/assets/svg/braces.svg'
-// Ensure Vuetify is installed and configured for v-icon to work,
-// or replace v-icon with SVG components if preferred.
+import InfoBox from '@/components/shared/InfoBox.vue'
 
 export default defineComponent({
     name: 'JsonResumeCard',
     components: {
         JsonFile,
         Upload,
-        Brace
+        Brace,
+        InfoBox
     },
     setup() {
         const activeTab = ref('paste')
@@ -148,7 +140,7 @@ export default defineComponent({
                 const parsed = JSON.parse(jsonText.value)
                 jsonText.value = JSON.stringify(parsed, null, 2)
             } catch (error) {
-                console.error("Invalid JSON:", error)
+                console.error('Invalid JSON:', error)
                 // Optionally, show an error message to the user
             } finally {
                 isFormatting.value = false
