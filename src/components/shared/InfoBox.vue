@@ -14,7 +14,11 @@
                         :key="index"
                         class="flex items-start gap-1.5"
                     >
-                        <span class="leading-tight" :class="{'text-yellow-500':bulb}">•</span>
+                        <span
+                            class="leading-tight"
+                            :class="{ 'text-yellow-500': bulb }"
+                            >•</span
+                        >
                         <span>{{ item }}</span>
                     </li>
                 </ul>
@@ -23,10 +27,12 @@
     </div>
 </template>
 
-<script setup lang="ts">
-defineProps<{
-    title: string
-    items: string[]
-    bulb: boolean 
-}>()
+<script>
+export default {
+    props: {
+        title: String,
+        items: Array,
+        bulb: Boolean,
+    },
+}
 </script>

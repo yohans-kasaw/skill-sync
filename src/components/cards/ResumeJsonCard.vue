@@ -83,7 +83,7 @@
     </div>
 </template>
 
-<script lang="ts">
+<script>
 import CardHeader from '@/components/shared/CardHeader.vue'
 import InfoBox from '@/components/shared/InfoBox.vue'
 import CardFooter from '@/components/shared/CardFooter.vue'

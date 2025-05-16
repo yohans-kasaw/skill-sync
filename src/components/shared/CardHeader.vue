@@ -15,16 +15,21 @@
     </div>
 </template>
 
-<script setup lang="ts">
-import { computed } from 'vue';
-
-const props = defineProps<{
-    title: string
-    subtitle: string
-    icon: string | object
-    colorClass:string
-}>()
-
-const iconBgClass = computed(() => `bg-${props.iconColor}/20`);
-const iconTextClass = computed(() => `text-${props.iconColor}`);
+<script>
+export default {
+    props: {
+        title: String,
+        subtitle: String,
+        icon: String,
+        colorClass: String,
+    },
+    computed: {
+        iconBgClass() {
+            return `bg-${this.colorClass}/20`
+        },
+        iconTextClass() {
+            return `text-${this.colorClass}`
+        },
+    },
+}
 </script>

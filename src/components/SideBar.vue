@@ -20,8 +20,8 @@
     </nav>
 </template>
 
-<script lang="ts">
-import route_info from '../lib/route_info.ts'
+<script>
+import route_info from '../lib/route_info.js'
 
 export default {
     name: 'Sidebar',

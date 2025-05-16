@@ -45,7 +45,7 @@
     </div>
 </template>
 
-<script lang="ts">
+<script>
 import InfoBox from '@/components/shared/InfoBox.vue'
 import CardHeader from '@/components/shared/CardHeader.vue'
 import CardFooter from '@/components/shared/CardFooter.vue'
