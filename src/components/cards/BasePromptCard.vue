@@ -1,5 +1,5 @@
 <template>
-    <div class="w-full bg-gray-800 shadow-lg rounded-lg border border-gray-700">
+    <div class="card-container">
         <CardHeader
             title="Base Prompt"
             subtitle="Define a persona or guiding principles for generating your application documents."
@@ -20,7 +20,7 @@
                     id="basePrompt"
                     v-model="basePromptText"
                     rows="5"
-                    class="w-full p-3 bg-gray-900 border border-gray-600 hover:border-gray-500 focus:border-blue-500 rounded-lg text-gray-300 placeholder-gray-500 outline-none focus:ring-1 focus:ring-blue-500 resize-y"
+                    class="text-area interactive-border"
                     :placeholder="BASE_PROMPT_PLACEHOLDER"
                 ></textarea>
             </div>
@@ -34,7 +34,7 @@
                         v-for="(suggestion, index) in PROMPT_SUGGESTIONS"
                         :key="index"
                         @click="applySuggestion(suggestion)"
-                        class="w-full text-left p-3 bg-slate-800 border border-gray-700 hover:border-blue-500 rounded-lg text-gray-300 text-xs hover:bg-slate-700 transition-colors duration-150 truncate"
+                        class="w-full text-left p-3 bg-slate-800 border border-gray-700 rounded-lg text-gray-300 text-xs hover:bg-slate-700 transition-colors duration-150 truncate"
                     >
                         {{ suggestion }}
                     </button>

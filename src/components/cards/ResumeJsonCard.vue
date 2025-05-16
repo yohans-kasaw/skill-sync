@@ -1,5 +1,5 @@
 <template>
-    <div class="w-full bg-gray-800 shadow-lg rounded-lg border border-gray-700">
+    <div class="card-container">
         <CardHeader
             title="Resume (JSON Format)"
             subtitle="Paste your JSON resume, or upload it as a file."
@@ -7,7 +7,7 @@
             colorClass="bg-blue-500/20 text-blue-400"
         />
 
-        <div class="px-6 bg-gray-800 pb-6 space-y-6">
+        <div class="px-6 pb-6 space-y-6">
             <InfoBox title="Why JSON?" :bulb="true" :items="WHY_JSON"></InfoBox>
 
             <div class="space-y-4">
@@ -29,19 +29,17 @@
                     </button>
                 </div>
 
-                <div
-                    class="rounded-lg border border-gray-700 hover:border-blue-500/30 focus-within:border-blue-500/30 focus-within:ring-1 focus-within:ring-blue-500 overflow-hidden transition-colors duration-150"
-                >
+                <div>
                     <textarea
                         v-if="activeTab === 'paste'"
                         v-model="jsonText"
                         rows="15"
-                        class="w-full p-3 bg-gray-900 text-gray-300 placeholder-gray-500 font-mono outline-none border-0 resize-y"
+                        class="text-area interactive-border font-mono"
                         placeholder='{ "name": "Jane Smith", "email": "jane@example.com", "summary": "Software Engineer skilled in Python." }'
                     ></textarea>
                     <div
                         v-else
-                        class="flex flex-col gap-3 justify-center items-center w-full min-h-[27rem] bg-gray-900 p-4"
+                        class="text-area interactive-border center-item min-h-[27rem]"
                     >
                         <v-icon class="text-gray-500" style="font-size: 3rem"
                             >mdi-cloud-upload-outline</v-icon
@@ -52,11 +50,7 @@
                         <span class="text-gray-400 text-xs text-center">
                             Drag and drop your JSON file here or click to browse
                         </span>
-                        <button
-                            class="mt-3 text-white px-4 py-2 bg-gray-700/80 hover:bg-gray-700 rounded-md text-xs font-medium transition-colors duration-150"
-                        >
-                            Select File
-                        </button>
+                        <button class="mt-3 btn-secondary">Select File</button>
                     </div>
                 </div>
 
@@ -66,7 +60,7 @@
                 >
                     <button
                         @click="formatJson"
-                        class="border border-slate-500 bg-slate-600 disabled:cursor-not-allowed disabled:opacity-50 font-medium hover:bg-slate-500 px-3 py-1.5 rounded-md text-sm text-white transition-colors duration-150"
+                        class="btn-secondary"
                         :disabled="!jsonText.trim() || isFormatting"
                     >
                         <v-icon
@@ -113,7 +107,6 @@ export default {
                 jsonText.value = JSON.stringify(parsed, null, 2)
             } catch (error) {
                 console.error('Invalid JSON:', error)
-                // Optionally, show an error message to the user
             } finally {
                 isFormatting.value = false
             }
