@@ -11,7 +11,7 @@
             <InfoBox
                 title="Tips for additional information?"
                 :bulb="true"
-                :items="tipsForInfo"
+                :items="TIPS_FOR_INFO"
             ></InfoBox>
 
             <div class="space-y-2">
@@ -37,20 +37,23 @@
             <InfoBox
                 title="What to include here:"
                 :bulb="false"
-                :items="whatToInclude"
+                :items="WHAT_TO_INCLUDE"
             ></InfoBox>
         </div>
-        <CardFooter firstBtnText="Back to Resume" secondBtnText="Continue"></CardFooter>
+        <CardFooter
+            firstBtnText="Back to Resume"
+            secondBtnText="Continue"
+        ></CardFooter>
     </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, computed } from 'vue'
 import InfoBox from '@/components/shared/InfoBox.vue'
 import CardHeader from '@/components/shared/CardHeader.vue'
 import CardFooter from '@/components/shared/CardFooter.vue'
+import { TIPS_FOR_INFO, WHAT_TO_INCLUDE } from '@/lib/constants.js'
 
-export default defineComponent({
+export default {
     name: 'AdditionalInformationCard',
 
     components: {
@@ -59,34 +62,19 @@ export default defineComponent({
         CardFooter,
     },
 
-    setup() {
-        const additionalInfoText = ref('')
-
-        const tipsForInfo = ref([
-            'Highlight achievements not visible in your structured resume',
-            'Mention specific interests in the company or role',
-            'Keep it concise but informative',
-        ])
-
-        const whatToInclude = ref([
-            'Specific interest in the role or company',
-            'Relevant achievements not covered in your resume',
-            'Explanation of any gaps in employment',
-            'Links to portfolios, projects, or social media profiles',
-        ])
-
-        const characterCount = computed(() => {
-            return additionalInfoText.value.length
-        })
-
+    data() {
         return {
-            additionalInfoText,
-            tipsForInfo,
-            whatToInclude,
-            characterCount,
+            TIPS_FOR_INFO,
+            WHAT_TO_INCLUDE,
+            additionalInfoText: '',
         }
     },
-})
+    computed: {
+        characterCount() {
+            return this.additionalInfoText.length
+        },
+    },
+}
 </script>
 
 <style scoped></style>

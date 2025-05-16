@@ -8,7 +8,7 @@
         />
 
         <div class="px-6 bg-gray-800 pb-6 space-y-6">
-            <InfoBox title="Why JSON?" :bulb="true" :items="why_json"></InfoBox>
+            <InfoBox title="Why JSON?" :bulb="true" :items="WHY_JSON"></InfoBox>
 
             <div class="space-y-4">
                 <div
@@ -22,7 +22,7 @@
                             'flex-1 py-1.5 px-3 text-center text-xs font-medium rounded transition-colors duration-150',
                             activeTab === tab
                                 ? 'bg-gray-900 text-white'
-                                : 'text-gray-300 hover:bg-slate-600 hover:text-white'
+                                : 'text-gray-300 hover:bg-slate-600 hover:text-white',
                         ]"
                     >
                         {{ tab === 'paste' ? 'Paste JSON' : 'Upload File' }}
@@ -43,7 +43,6 @@
                         v-else
                         class="flex flex-col gap-3 justify-center items-center w-full min-h-[27rem] bg-gray-900 p-4"
                     >
-                        <!-- Replaced Upload SVG with mdi-cloud-upload-outline -->
                         <v-icon class="text-gray-500" style="font-size: 3rem"
                             >mdi-cloud-upload-outline</v-icon
                         >
@@ -68,7 +67,6 @@
                     <button
                         @click="formatJson"
                         class="border border-slate-500 bg-slate-600 disabled:cursor-not-allowed disabled:opacity-50 font-medium hover:bg-slate-500 px-3 py-1.5 rounded-md text-sm text-white transition-colors duration-150"
-
                         :disabled="!jsonText.trim() || isFormatting"
                     >
                         <v-icon
@@ -86,30 +84,28 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue'
 import CardHeader from '@/components/shared/CardHeader.vue'
 import InfoBox from '@/components/shared/InfoBox.vue'
 import CardFooter from '@/components/shared/CardFooter.vue'
+import { WHY_JSON } from '@/lib/constants.js'
 
-export default defineComponent({
+export default {
     name: 'JsonResumeCard',
     components: {
         InfoBox,
         CardHeader,
-        CardFooter
+        CardFooter,
     },
-    setup() {
-        const activeTab = ref('paste')
-        const jsonText = ref('')
-        const isFormatting = ref(false)
-
-        const why_json = ref([
-            'Make quick updates to your resume—no more messy formatting.',
-            'Share effortlessly with AI tools and easy to prompt.',
-            'Customize the look with HTML + JS then print it from browser to get PDF.'
-        ])
-
-        const formatJson = () => {
+    data() {
+        return {
+            activeTab: 'paste',
+            jsonText: '',
+            isFormatting: false,
+            WHY_JSON,
+        }
+    },
+    methods: {
+        formatJson() {
             if (!jsonText.value.trim()) return
             isFormatting.value = true
             try {
@@ -121,17 +117,9 @@ export default defineComponent({
             } finally {
                 isFormatting.value = false
             }
-        }
-
-        return {
-            activeTab,
-            jsonText,
-            isFormatting,
-            why_json,
-            formatJson
-        }
-    }
-})
+        },
+    },
+}
 </script>
 
 <style scoped></style>
