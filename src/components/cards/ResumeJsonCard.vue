@@ -1,6 +1,5 @@
 <template>
     <div class="w-full bg-gray-800 shadow-lg rounded-lg border border-gray-700">
-        <!-- Header -->
         <CardHeader
             title="Resume (JSON Format)"
             subtitle="Paste your JSON resume, or upload it as a file."
@@ -8,13 +7,10 @@
             colorClass="bg-blue-500/20 text-blue-400"
         />
 
-        <!-- Main Content Area -->
         <div class="px-6 bg-gray-800 pb-6 space-y-6">
             <InfoBox title="Why JSON?" :bulb="true" :items="why_json"></InfoBox>
 
-            <!-- JSON Input Part -->
             <div class="space-y-4">
-                <!-- Tab Buttons Container -->
                 <div
                     class="w-full bg-gray-700/80 rounded-md p-1 flex items-center space-x-1"
                 >
@@ -33,7 +29,6 @@
                     </button>
                 </div>
 
-                <!-- Text Area / Upload Area Container -->
                 <div
                     class="rounded-lg border border-gray-700 hover:border-blue-500/30 focus-within:border-blue-500/30 focus-within:ring-1 focus-within:ring-blue-500 overflow-hidden transition-colors duration-150"
                 >
@@ -66,17 +61,16 @@
                     </div>
                 </div>
 
-                <!-- Format JSON Button -->
                 <div
                     class="w-full flex justify-end"
                     v-if="activeTab === 'paste'"
                 >
                     <button
                         @click="formatJson"
-                        class="px-3 py-1.5 bg-slate-600 hover:bg-slate-500 text-white text-xs font-medium rounded-md border border-slate-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-150"
+                        class="border border-slate-500 bg-slate-600 disabled:cursor-not-allowed disabled:opacity-50 font-medium hover:bg-slate-500 px-3 py-1.5 rounded-md text-sm text-white transition-colors duration-150"
+
                         :disabled="!jsonText.trim() || isFormatting"
                     >
-                        <!-- Replaced Brace SVG with mdi-code-braces -->
                         <v-icon
                             class="inline mr-1 -ml-0.5 align-[-3px]"
                             style="font-size: 0.875rem"
@@ -87,18 +81,7 @@
                 </div>
             </div>
         </div>
-
-        <!-- Footer Button -->
-        <div
-            class="px-6 py-4 bg-slate-800 border-t border-gray-700 flex justify-end items-center rounded-b-lg"
-        >
-            <button
-                class="hover:bg-gray-600 text-white px-4 py-2 border border-gray-700 rounded-lg text-sm font-medium flex items-center gap-1.5 transition-colors duration-150"
-            >
-                Continue
-                <v-icon style="font-size: 1.1rem">mdi-arrow-down</v-icon>
-            </button>
-        </div>
+        <CardFooter secondBtnText="Continue"></CardFooter>
     </div>
 </template>
 
@@ -106,12 +89,14 @@
 import { defineComponent, ref } from 'vue'
 import CardHeader from '@/components/shared/CardHeader.vue'
 import InfoBox from '@/components/shared/InfoBox.vue'
+import CardFooter from '@/components/shared/CardFooter.vue'
 
 export default defineComponent({
     name: 'JsonResumeCard',
     components: {
         InfoBox,
-        CardHeader
+        CardHeader,
+        CardFooter
     },
     setup() {
         const activeTab = ref('paste')

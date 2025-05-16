@@ -1,6 +1,5 @@
 <template>
     <div class="w-full bg-gray-800 shadow-lg rounded-lg border border-gray-700">
-        <!-- Header -->
         <CardHeader
             title="Base Prompt"
             subtitle="Define a persona or guiding principles for generating your application documents."
@@ -9,7 +8,6 @@
         >
         </CardHeader>
 
-        <!-- Main Content Area -->
         <div class="px-6 bg-gray-800 pb-6 space-y-6">
             <InfoBox
                 title="Tips for your base prompt"
@@ -27,7 +25,6 @@
                 ></textarea>
             </div>
 
-            <!-- Prompt Suggestions -->
             <div class="space-y-3">
                 <h3 class="text-white font-semibold text-sm">
                     Prompt Suggestions
@@ -44,18 +41,7 @@
                 </div>
             </div>
         </div>
-
-        <!-- Footer Button -->
-        <div
-            class="px-6 py-4 bg-slate-800 border-t border-gray-700 flex justify-start items-center rounded-b-lg"
-        >
-            <button
-                class="px-5 border border-gray-700 hover:bg-gray-600 text-white py-2.5 text-sm font-medium rounded-md"
-            >
-                Back to Additional Info
-            </button>
-            <!-- No "Continue" button in this screenshot -->
-        </div>
+        <CardFooter firstBtnText="Back to Additional Info"></CardFooter>
     </div>
 </template>
 
@@ -63,12 +49,14 @@
 import { defineComponent, ref } from 'vue'
 import InfoBox from '@/components/shared/InfoBox.vue'
 import CardHeader from '@/components/shared/CardHeader.vue'
+import CardFooter from '@/components/shared/CardFooter.vue'
 
 export defau/lt defineComponent({
     name: 'BasePromptCard',
     components: {
         InfoBox,
-        CardHeader
+        CardHeader,
+        CardFooter
     },
     setup() {
         const basePromptText = ref('')
