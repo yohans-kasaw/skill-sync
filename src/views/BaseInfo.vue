@@ -7,14 +7,14 @@
             :key="index"
             class="snap-section h-screen flex justify-center items-center"
         >
-            <div class="w-3/4 lg:w-2/4">
+            <div class="w-3/4 xl:w-2/4">
                 <component :is="section.component"></component>
             </div>
         </div>
     </div>
 </template>
 
-<script lang="ts">
+<script>
 import ResumeJsonCard from '@/components/cards/ResumeJsonCard.vue'
 import AdditionalInfoCard from '@/components/cards/AdditionalInfoCard.vue'
 import BasePromptCard from '@/components/cards/BasePromptCard.vue'

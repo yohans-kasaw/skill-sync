@@ -1,9 +1,9 @@
-
 @import 'tailwindcss';
 
 body {
     margin: 0;
     display: flex;
+    color: white;
 }
 
 .btn-primary {
@@ -62,10 +62,10 @@ body {
         hover:border-blue-500;
 }
 
-.main-back-ground {
+.main-background {
     @apply 
         bg-gradient-to-br 
-        from-slate-900 
+        from-slate-800 
         via-slate-800/95 
         via-slate-800/90 
         via-slate-800/85 

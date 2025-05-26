@@ -5,7 +5,7 @@
         </nav>
         <div class="flex-grow ml-12">
             <main
-                class="h-full main-back-ground"
+                class="h-full main-background"
             >
                 <RouterView />
             </main>
@@ -13,8 +13,8 @@
     </div>
 </template>
 
-<script lang="ts">
-import SideBar from './components/SideBar.vue'
+<script>
+import SideBar from '@/components/SideBar.vue'
 export default {
     name: 'App',
     components: {

@@ -12,17 +12,17 @@
 
             <div class="space-y-4">
                 <div
-                    class="w-full bg-gray-700/80 rounded-md p-1 flex items-center space-x-1"
+                    class="w-full bg-gray-700 rounded-md p-1 flex items-center space-x-1"
                 >
                     <button
                         v-for="tab in ['paste', 'upload']"
                         :key="tab"
                         @click="activeTab = tab"
                         :class="[
-                            'flex-1 py-1.5 px-3 text-center text-xs font-medium rounded transition-colors duration-150',
+                            'flex-1 py-1.5 px-3 text-center text-xs font-medium rounded transition-colors duration-150 text-white',
                             activeTab === tab
-                                ? 'bg-gray-900 text-white'
-                                : 'text-gray-300 hover:bg-slate-600 hover:text-white',
+                                ? 'bg-gray-900'
+                                : 'hover:bg-slate-600',
                         ]"
                     >
                         {{ tab === 'paste' ? 'Paste JSON' : 'Upload File' }}
