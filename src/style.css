@@ -1,3 +1,4 @@
+
 @import 'tailwindcss';
 
 body {
@@ -5,26 +6,78 @@ body {
     display: flex;
 }
 
-.center-item {
-    @apply flex flex-col justify-center items-center;
-}
-
-.card-container {
-    @apply w-full bg-gray-800 shadow-lg rounded-lg border border-gray-700;
-}
-
-.interactive-border {
-    @apply rounded-lg border border-gray-700 hover:border-blue-500 overflow-hidden;
-}
-
-.text-area {
-    @apply w-full p-4 bg-gray-900 text-gray-400 placeholder-gray-500 outline-none;
+.btn-primary {
+    @apply 
+        border 
+        border-gray-700 
+        rounded-lg 
+        px-4 
+        py-[8px] 
+        text-sm 
+        font-medium 
+        text-white 
+        transition-colors 
+        duration-150
+        hover:bg-gray-600;
 }
 
 .btn-secondary {
-    @apply text-white px-4 py-2 bg-gray-700/80 hover:bg-gray-700 rounded-md text-xs font-medium transition-colors duration-150;
+    @apply 
+        rounded-md
+        bg-gray-700/80
+        px-4 
+        py-2 
+        text-xs 
+        font-medium 
+        text-white 
+        transition-colors 
+        duration-150
+        hover:bg-gray-700;
 }
 
-.btn-primary {
-    @apply hover:bg-gray-600 text-white px-4 py-[8px] border border-gray-700 rounded-lg text-sm font-medium transition-colors duration-150;
+.card-container {
+    @apply 
+        w-full 
+        rounded-lg 
+        border 
+        border-gray-700
+        bg-gray-800 
+        shadow-lg;
+}
+
+.center-item {
+    @apply 
+        flex 
+        flex-col 
+        justify-center 
+        items-center;
+}
+
+.interactive-border {
+    @apply 
+        rounded-lg 
+        border 
+        border-gray-700 
+        overflow-hidden
+        hover:border-blue-500;
+}
+
+.main-back-ground {
+    @apply 
+        bg-gradient-to-br 
+        from-slate-900 
+        via-slate-800/95 
+        via-slate-800/90 
+        via-slate-800/85 
+        to-blue-900;
+}
+
+.text-area {
+    @apply 
+        w-full 
+        p-4 
+        bg-gray-900 
+        text-gray-400 
+        placeholder-gray-500 
+        outline-none;
 }
