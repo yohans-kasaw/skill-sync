@@ -50,6 +50,7 @@ import InfoBox from '@/components/shared/InfoBox.vue'
 import CardHeader from '@/components/shared/CardHeader.vue'
 import CardFooter from '@/components/shared/CardFooter.vue'
 import { TIPS_FOR_INFO, WHAT_TO_INCLUDE } from '@/lib/constants.js'
+import { useUserInfoStore } from '@/lib/store.js'
 
 export default {
     name: 'AdditionalInformationCard',
@@ -64,10 +65,17 @@ export default {
         return {
             TIPS_FOR_INFO,
             WHAT_TO_INCLUDE,
-            additionalInfoText: '',
         }
     },
     computed: {
+        additionalInfoText: {
+            get() {
+                return useUserInfoStore().additionalInfo
+            },
+            set(value) {
+                useUserInfoStore().additionalInfo = value
+            },
+        },
         characterCount() {
             return this.additionalInfoText.length
         },

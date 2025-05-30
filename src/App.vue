@@ -4,9 +4,7 @@
             <side-bar />
         </nav>
         <div class="flex-grow ml-12">
-            <main
-                class="h-full main-background"
-            >
+            <main class="h-full main-background">
                 <RouterView />
             </main>
         </div>
@@ -15,13 +13,15 @@
 
 <script>
 import SideBar from '@/components/SideBar.vue'
+import { mapState, mapActions } from 'pinia'
 export default {
     name: 'App',
     components: {
-        SideBar
-    }
+        SideBar,
+    },
+    methods: {
+    },
 }
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>

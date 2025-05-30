@@ -82,6 +82,8 @@ import CardHeader from '@/components/shared/CardHeader.vue'
 import InfoBox from '@/components/shared/InfoBox.vue'
 import CardFooter from '@/components/shared/CardFooter.vue'
 import { WHY_JSON } from '@/lib/constants.js'
+import { mapState, mapActions } from 'pinia'
+import { useUserInfoStore } from '@/lib/store.js'
 
 export default {
     name: 'JsonResumeCard',
@@ -93,10 +95,19 @@ export default {
     data() {
         return {
             activeTab: 'paste',
-            jsonText: '',
             isFormatting: false,
             WHY_JSON,
         }
+    },
+    computed: {
+        jsonText: {
+            get() {
+                return useUserInfoStore().resumeJson 
+            },
+            set(value) {
+                useUserInfoStore().resumeJson = value
+            },
+        },
     },
     methods: {
         formatJson() {

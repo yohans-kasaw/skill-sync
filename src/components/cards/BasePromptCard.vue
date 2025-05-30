@@ -47,6 +47,7 @@
 import InfoBox from '@/components/shared/InfoBox.vue'
 import CardHeader from '@/components/shared/CardHeader.vue'
 import CardFooter from '@/components/shared/CardFooter.vue'
+import { useUserInfoStore } from '@/lib/store.js'
 import {
     BASE_PROMPT_PLACEHOLDER,
     TIPS_FOR_BASE_PROMPT,
@@ -62,11 +63,20 @@ export default {
     },
     data() {
         return {
-            basePromptText: '',
             BASE_PROMPT_PLACEHOLDER,
             TIPS_FOR_BASE_PROMPT,
             PROMPT_SUGGESTIONS,
         }
+    },
+    computed: {
+        basePromptText: {
+            get() {
+                return useUserInfoStore().basePrompt
+            },
+            set(value) {
+                useUserInfoStore().basePrompt = value
+            },
+        },
     },
     methods: {
         applySuggestion(suggestion) {
