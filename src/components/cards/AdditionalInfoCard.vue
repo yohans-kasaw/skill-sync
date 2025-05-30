@@ -7,39 +7,37 @@
             colorClass="bg-purple-500/20 text-purple-400"
         />
 
-        <div class="px-6 bg-gray-800 pb-6 space-y-6">
-            <InfoBox
-                title="Tips for additional information?"
-                :bulb="true"
-                :items="TIPS_FOR_INFO"
-            ></InfoBox>
+        <InfoBox
+            title="Tips for additional information?"
+            :bulb="true"
+            :items="TIPS_FOR_INFO"
+        ></InfoBox>
 
-            <div class="space-y-2">
-                <label
-                    for="additionalInformation"
-                    class="block text-sm font-medium text-gray-300 mb-1"
-                >
-                    Share any additional information that might be relevant to
-                    your application...
-                </label>
-                <textarea
-                    id="additionalInformation"
-                    v-model="additionalInfoText"
-                    rows="8"
-                    class="text-area interactive-border"
-                    placeholder="Enter your notes here..."
-                ></textarea>
-                <div class="text-right text-xs text-gray-500">
-                    {{ characterCount }} characters
-                </div>
+        <div class="space-y-3">
+            <label
+                for="additionalInformation"
+                class="block text-sm font-medium text-gray-light"
+            >
+                Share any additional information that might be relevant to your
+                application...
+            </label>
+            <textarea
+                id="additionalInformation"
+                v-model="additionalInfoText"
+                rows="8"
+                class="text-area interactive-border"
+                placeholder="Enter your notes here..."
+            ></textarea>
+            <div class="text-right text-xs text-gray-500">
+                {{ characterCount }} characters
             </div>
-
-            <InfoBox
-                title="What to include here:"
-                :bulb="false"
-                :items="WHAT_TO_INCLUDE"
-            ></InfoBox>
         </div>
+
+        <InfoBox
+            title="What to include here:"
+            :bulb="false"
+            :items="WHAT_TO_INCLUDE"
+        ></InfoBox>
         <CardFooter
             firstBtnText="Back to Resume"
             secondBtnText="Continue"

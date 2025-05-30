@@ -1,4 +1,27 @@
 @import 'tailwindcss';
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+    --color-primary: var(--color-blue-900);
+    --color-secondary: var(--color-slate-800);
+    --color-accent: var(--color-yellow-500);
+    --color-gray-light: var(--color-gray-400);
+    --color-gray-mid: var(--color-gray-600);
+    --color-gray-dark: var(--color-gray-800);
+    --color-black: var(--color-gray-900);
+    --color-white: var(--color-white);
+}
+
+@theme {
+  --color-primary: #1e3a8a;
+  --color-secondary: #1e293b;
+  --color-accent: #eab308;
+  --color-white: #ffffff;
+  --color-gray-light: #9ca3af;
+  --color-gray-mid: #4b5563;
+  --color-gray-dark: #1f2937;
+  --color-black: #111827;
+}
 
 body {
     margin: 0;
@@ -7,77 +30,62 @@ body {
 }
 
 .btn-primary {
-    @apply 
-        border 
-        border-gray-700 
-        rounded-lg 
-        px-4 
-        py-[8px] 
-        text-sm 
-        font-medium 
-        text-white 
-        transition-colors 
+    @apply border
+        border-gray-mid
+        bg-gray-dark
         duration-150
-        hover:bg-gray-600;
-}
-
-.btn-secondary {
-    @apply 
+        font-medium
+        px-4
+        py-2
         rounded-md
-        bg-gray-700/80
-        px-4 
-        py-2 
-        text-xs 
-        font-medium 
-        text-white 
-        transition-colors 
-        duration-150
-        hover:bg-gray-700;
+        text-sm
+        text-white
+        hover:bg-gray-mid;
 }
 
 .card-container {
-    @apply 
-        w-full 
+    @apply w-full 
+        p-8
+        space-y-6
         rounded-lg 
+        shadow-lg
         border 
-        border-gray-700
-        bg-gray-800 
-        shadow-lg;
+        border-gray-mid
+        bg-gray-dark;
 }
 
 .center-item {
-    @apply 
-        flex 
+    @apply flex 
         flex-col 
         justify-center 
         items-center;
 }
 
 .interactive-border {
-    @apply 
-        rounded-lg 
+    @apply rounded-lg 
         border 
-        border-gray-700 
+        border-gray-mid
         overflow-hidden
-        hover:border-blue-500;
+        hover:border-gray-light;
 }
 
 .main-background {
-    @apply 
-        bg-gradient-to-br 
-        from-slate-800 
-        via-slate-800/95 
-        via-slate-800/90 
-        via-slate-800/85 
-        to-blue-900;
+    @apply bg-gradient-to-br
+        from-primary
+        via-primary/85
+        via-primary/90
+        via-primary/95
+        via-secondary/95
+        via-secondary/90
+        via-secondary/85
+        to-secondary;
 }
 
 .text-area {
-    @apply 
-        w-full 
+    @apply w-full 
         p-4 
-        bg-gray-900 
-        text-gray-400 
-        placeholder-gray-500 
+        bg-black
+        text-gray-light
+        placeholder-gray-light/80 
         outline-none;
 }

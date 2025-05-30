@@ -8,7 +8,7 @@
         >
         </CardHeader>
 
-        <div class="px-6 bg-gray-800 pb-6 space-y-6">
+        <div class="px-6 bg-gray-dark pb-6 space-y-6">
             <InfoBox
                 title="Tips for your base prompt"
                 :bulb="true"
@@ -26,18 +26,16 @@
             </div>
 
             <div class="space-y-3">
-                <h3 class="text-white font-semibold text-sm">
-                    Prompt Suggestions
-                </h3>
+                <h3 class="font-semibold text-sm">Prompt Suggestions</h3>
                 <div class="space-y-2">
-                    <button
+                    <div
                         v-for="(suggestion, index) in PROMPT_SUGGESTIONS"
                         :key="index"
                         @click="applySuggestion(suggestion)"
-                        class="w-full text-left p-3 bg-slate-800 border border-gray-700 rounded-lg text-gray-300 text-xs hover:bg-slate-700 transition-colors duration-150 truncate"
+                        class="p-3 border border-gray-mid rounded-lg text-xs bg-secondary hover:bg-gray-light/30"
                     >
                         {{ suggestion }}
-                    </button>
+                    </div>
                 </div>
             </div>
         </div>

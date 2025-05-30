@@ -12,17 +12,17 @@
 
             <div class="space-y-4">
                 <div
-                    class="w-full bg-gray-700 rounded-md p-1 flex items-center space-x-1"
+                    class="w-full bg-gray-mid/50 rounded-md p-1 flex items-center space-x-1"
                 >
                     <button
                         v-for="tab in ['paste', 'upload']"
                         :key="tab"
                         @click="activeTab = tab"
                         :class="[
-                            'flex-1 py-1.5 px-3 text-center text-xs font-medium rounded transition-colors duration-150 text-white',
+                            'flex-1 py-1.5 px-3 text-center text-xs font-medium rounded transition-colors duration-150',
                             activeTab === tab
-                                ? 'bg-gray-900'
-                                : 'hover:bg-slate-600',
+                                ? 'bg-black'
+                                : 'hover:bg-secondary/70',
                         ]"
                     >
                         {{ tab === 'paste' ? 'Paste JSON' : 'Upload File' }}
@@ -39,18 +39,18 @@
                     ></textarea>
                     <div
                         v-else
-                        class="text-area interactive-border center-item min-h-[27rem]"
+                        class="text-area interactive-border center-item min-h-[27rem] gap-3"
                     >
-                        <v-icon class="text-gray-500" style="font-size: 3rem"
+                        <v-icon class="text-gray-light" style="font-size: 3rem"
                             >mdi-cloud-upload-outline</v-icon
                         >
-                        <span class="text-white font-medium text-sm pt-2"
+                        <span class="font-medium text-sm pt-2"
                             >Upload JSON Resume</span
                         >
-                        <span class="text-gray-400 text-xs text-center">
+                        <span class="text-gray-light text-xs text-center">
                             Drag and drop your JSON file here or click to browse
                         </span>
-                        <button class="mt-3 btn-secondary">Select File</button>
+                        <button class="btn-primary">Select File</button>
                     </div>
                 </div>
 
@@ -60,7 +60,7 @@
                 >
                     <button
                         @click="formatJson"
-                        class="btn-secondary"
+                        class="btn-primary text-xs"
                         :disabled="!jsonText.trim() || isFormatting"
                     >
                         <v-icon

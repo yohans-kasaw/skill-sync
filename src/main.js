@@ -9,6 +9,7 @@ import '@mdi/font/css/materialdesignicons.css'
 //import 'vuetify/styles'
 
 const vuetify = createVuetify({
+    theme: false,
     components: components,
     directives,
 })

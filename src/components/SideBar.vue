@@ -1,6 +1,6 @@
 <template>
     <nav
-        class="fixed h-full text-white w-12 hover:w-48 bg-gradient-to-br from-slate-900 to-slate-800 transition-all duration-300 ease-in-out"
+        class="fixed h-full w-12 hover:w-48 bg-gradient-to-br from-slate-900 to-slate-800 transition-all duration-300 ease-in-out"
     >
         <div class="py-8">
             <a

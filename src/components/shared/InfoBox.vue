@@ -5,7 +5,7 @@
                 <v-icon :size="20"> mdi-lightbulb-outline </v-icon>
             </div>
             <div class="flex flex-col">
-                <h3 class="text-white font-semibold text-sm mb-1">
+                <h3 class="font-semibold text-sm mb-1">
                     {{ title }}
                 </h3>
                 <ul class="text-xs text-gray-400 space-y-1.5">
