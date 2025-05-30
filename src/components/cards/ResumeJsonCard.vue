@@ -111,15 +111,16 @@ export default {
     },
     methods: {
         formatJson() {
-            if (!jsonText.value.trim()) return
-            isFormatting.value = true
+            if (!this.jsonText.trim()) return
+            this.isFormatting = true
             try {
-                const parsed = JSON.parse(jsonText.value)
-                jsonText.value = JSON.stringify(parsed, null, 2)
+                const parsed = JSON.parse(this.jsonText)
+                this.jsonText = JSON.stringify(parsed, null, 2)
             } catch (error) {
+                alert("invalied json")
                 console.error('Invalid JSON:', error)
             } finally {
-                isFormatting.value = false
+                this.isFormatting = false
             }
         },
     },
