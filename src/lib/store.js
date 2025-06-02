@@ -6,10 +6,13 @@ export const useUserInfoStore = defineStore('userInfo', {
         additionalInfo: '',
         basePrompt: '',
     }),
-    actions: {
-        setResumeJson(value) {
-            this.resumeJson = value
-        },
-    },
+    actions: {},
+    persist: true,
+})
+
+export const useUserSettingsStore = defineStore('userSettings', {
+    state: () => ({
+        tabSize: 4,
+    }),
     persist: true,
 })

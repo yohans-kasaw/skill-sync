@@ -30,13 +30,10 @@
                 </div>
 
                 <div>
-                    <textarea
+                    <JsonView
                         v-if="activeTab === 'paste'"
                         v-model="jsonText"
-                        rows="15"
-                        class="text-area interactive-border font-mono"
-                        placeholder='{ "name": "Jane Smith", "email": "jane@example.com", "summary": "Software Engineer skilled in Python." }'
-                    ></textarea>
+                    ></JsonView>
                     <div
                         v-else
                         class="text-area interactive-border center-item min-h-[27rem] gap-3"
@@ -82,8 +79,10 @@ import CardHeader from '@/components/shared/CardHeader.vue'
 import InfoBox from '@/components/shared/InfoBox.vue'
 import CardFooter from '@/components/shared/CardFooter.vue'
 import { WHY_JSON } from '@/lib/constants.js'
-import { mapState, mapActions } from 'pinia'
+import { mapState } from 'pinia'
 import { useUserInfoStore } from '@/lib/store.js'
+import JsonView from '@/components/shared/JsonView.vue'
+import { useUserSettingsStore } from '@/lib/store'
 
 export default {
     name: 'JsonResumeCard',
@@ -91,6 +90,7 @@ export default {
         InfoBox,
         CardHeader,
         CardFooter,
+        JsonView,
     },
     data() {
         return {
@@ -100,9 +100,10 @@ export default {
         }
     },
     computed: {
+        ...mapState(useUserSettingsStore, ['tabSize']),
         jsonText: {
             get() {
-                return useUserInfoStore().resumeJson 
+                return useUserInfoStore().resumeJson
             },
             set(value) {
                 useUserInfoStore().resumeJson = value
@@ -115,9 +116,9 @@ export default {
             this.isFormatting = true
             try {
                 const parsed = JSON.parse(this.jsonText)
-                this.jsonText = JSON.stringify(parsed, null, 2)
+                this.jsonText = JSON.stringify(parsed, null, this.tabSize)
             } catch (error) {
-                alert("invalied json")
+                alert('invalied json')
                 console.error('Invalid JSON:', error)
             } finally {
                 this.isFormatting = false

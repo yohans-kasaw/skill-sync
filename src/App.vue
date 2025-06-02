@@ -13,7 +13,6 @@
 
 <script>
 import SideBar from '@/components/SideBar.vue'
-import { mapState, mapActions } from 'pinia'
 export default {
     name: 'App',
     components: {
